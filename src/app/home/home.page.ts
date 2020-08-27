@@ -92,7 +92,7 @@ export class HomePage {
   @ViewChild('text', {read: ElementRef, static: true}) text: ElementRef;
   @ViewChild('elementsToProcess', {read: ElementRef, static: true}) elementsToProcess: ElementRef;
   @ViewChild('toolbar2', {read: ElementRef, static: true}) toolbar2: ElementRef;
-  @ViewChild('content', {static: true}) content: IonContent;
+  @ViewChild('IonContentScroll', {static: true}) IonContentScroll: IonContent;
   @ViewChild('content', {read: ElementRef, static: true}) contentref: ElementRef;
   @ViewChild('calendar', {static: false}) calendar: ElementRef;
 
@@ -230,14 +230,14 @@ export class HomePage {
    .duration(300)
    .delay(50)
    .easing('cubic-bezier(.51,1,.88,1)')
-   .fromTo('transform', ' perspective(1px) translateY(0) translateZ(0) translateX(0) scale(1)', 'perspective(1px) translateY(-18vh) translateZ(0) translateX(-7vw) scale(0.6)');
+   .fromTo('transform', ' perspective(1px) translateY(0) translateZ(0) translateX(0) scale(1)', 'perspective(1px) translateY(-20vh) translateZ(0) translateX(-'+ this.tamañoMover() + 'vh) scale(calc(1/2))');
 
       animation8 = this.animationCtrl.create('identifier8-a')
    .addElement(this.animation8.nativeElement)
    .duration(300)
    .delay(40)
    .easing('cubic-bezier(.51,1,.88,1)')
-   .fromTo('transform', '  translate(0, 0)', ' translate(-2vw, -15.5vh)');
+   .fromTo('transform', ' translate(0, 0)', 'translate(-2vw, -15.5vh)');
 
       animation9 = this.animationCtrl.create('identifier9-a')
        .addElement(this.fabstart.nativeElement)
@@ -347,7 +347,7 @@ export class HomePage {
    .fromTo('transform' , 'translate(-2vw, -15.5vh)', 'translate(0, 0)');
     
 
-      animation9 = this.animationCtrl.create('identifier9-b')
+    animation9 = this.animationCtrl.create('identifier9-b')
      .addElement(this.fabstart.nativeElement)
      .afterAddClass('zindexFooter')
      .duration(200)
@@ -359,7 +359,7 @@ export class HomePage {
    
 
    
-       animation10 = this.animationCtrl.create('identifier10-b')
+    animation10 = this.animationCtrl.create('identifier10-b')
       .addElement(this.fabend.nativeElement)
       .afterAddClass('zindexFooter')
       .duration(200)
@@ -371,17 +371,17 @@ export class HomePage {
 
 
 
-      animation2.play();
-      animation3.play();
-      animation4.play();
+    animation2.play();
+    animation3.play();
+    animation4.play();
    //   animation5.play();
-      animation6.play();
-      animation7.play();
-      animation8.play();
-     animation9.play();
-     animation10.play();
+    animation6.play();
+    animation7.play();
+    animation8.play();
+    animation9.play();
+    animation10.play();
   
-      this.animacionBounce(false);
+    this.animacionBounce(false);
    
 
     this.estadoArriba = false;
@@ -425,18 +425,18 @@ export class HomePage {
   // .afterStyles({bottom:'-16vh'})
   //   .fromTo('transform', 'translate3d(0, 0, 0)', 'translate3d(0, 40px, 0)')
     // .fromTo('transform', 'translate3d(0, 67vh, 0)', 'translate3d(0, 0vh, 0)');
-     .keyframes([{ offset: 0, transform: 'translate3d(0, 0vh, 0)' },
+     .keyframes([{ offset: 0, transform: 'translate3d(0, -6vh, 0)' },
   
-  { offset: 1, transform: 'translate3d(0, 67vh, 0)' }, ]);
+  { offset: 1, transform: 'translate3d(0, 60vh, 0)' }, ]);
   
   
     animation5.play();
   } else {
     this.div2.nativeElement.click();
-    this.content.scrollToPoint(0, 0, 400);
+    this.IonContentScroll.scrollToPoint(0, 0, 400);
   }
     this.div2.nativeElement.click();
-    this.content.scrollToPoint(0, 0, 400);
+    this.IonContentScroll.scrollToPoint(0, 0, 400);
   }
 
 librosDescargados(Libros) {
@@ -486,15 +486,15 @@ const animation5: Animation = this.animationCtrl.create('bouceEduardo-b')
     .addElement(this.div2.nativeElement)
     .duration(duracion)
     .delay(60)
-    .easing(' cubic-bezier(0,.70,.45,1)')
-// .beforeStyles({bottom:'-16vh'})
- // .afterStyles({bottom:'-16vh'})
+    .easing('cubic-bezier(0,.70,.45,1)')
+     .beforeStyles({height: '80vh'})
+     .afterStyles({height: '74vh'})
  //   .fromTo('transform', 'translate3d(0, 0, 0)', 'translate3d(0, 40px, 0)')
     // .fromTo('transform', 'translate3d(0, 67vh, 0)', 'translate3d(0, 0vh, 0)');
-     .keyframes([{ offset: 0, transform: 'translate3d(0, 67vh, 0)' },
-     { offset: 0.6, transform: 'translate3d(0, -0.5vh, 0)' },
-     { offset: 0.9, transform: 'translate3d(0, .9vh, 0)' },
- { offset: 1, transform: 'translate3d(0, 0vh, 0)' }, ]);
+     .keyframes([{ offset: 0, transform: 'translate3d(0, 60vh, 0)' },
+     { offset: 0.6, transform: 'translate3d(0, -10.5vh, 0)' },
+     { offset: 0.9, transform: 'translate3d(0, -5.0vh, 0)' },
+ { offset: 1, transform: 'translate3d(0, -6vh, 0)' }, ]);
 
 
 
@@ -521,7 +521,7 @@ this.pillMenu.animacion();
 // .beforeStyles({bottom:'-16vh'})
 // .afterStyles({bottom:'-16vh'})
 //   .fromTo('transform', 'translate3d(0, 0, 0)', 'translate3d(0, 40px, 0)')
-   .fromTo('transform', 'translate3d(0, 0vh, 0)', 'translate3d(0, 67vh, 0)');
+   .fromTo('transform', 'translate3d(0, -6vh, 0)', 'translate3d(0, 60vh, 0)');
   // this.content.scrollToPoint(0, 0, 0);
       this.gesture.enable(false);
  //  this.scrollenable=false;
@@ -531,7 +531,7 @@ this.pillMenu.animacion();
 
 
     }
-    this.content.scrollToPoint(0, 0, 0);
+this.IonContentScroll.scrollToPoint(0, 0, 0);
 
 
   }
@@ -542,21 +542,21 @@ this.pillMenu.animacion();
 
   // tslint:disable-next-line: use-lifecycle-interface
   ngAfterViewInit() {
-
+    console.log('Width: ' + this.platform.width());
     //  console.log(this.div1);
      // console.log(this.items);
      // let status bar overlay webview
    //  this.statusBar.overlaysWebView(true);
 
      // set status bar to white
-      this.statusBar.backgroundColorByHexString('#FFFFFF');
-      this.llenar_libros();
-      this.selectSeccion = 1;
+    this.statusBar.backgroundColorByHexString('#FFFFFF');
+    this.llenar_libros();
+    this.selectSeccion = 1;
     //  this.statusBar.hide();
 
-      this.pillMenu.visibleFab(false);
+    this.pillMenu.visibleFab(false);
 
-      this.observer = new IntersectionObserver((entries) => {
+    this.observer = new IntersectionObserver((entries) => {
 
         entries.forEach((entry: any) => {
           if (!entry.isIntersecting) {
@@ -569,7 +569,7 @@ this.pillMenu.animacion();
         });
       }, {threshold: 0});
 
-      this.observer.observe(this.elementsToProcess.nativeElement);
+    this.observer.observe(this.elementsToProcess.nativeElement);
 
     }
     async  ionSlideTouchStart() {
@@ -627,17 +627,19 @@ this.pillMenu.animacion();
       } 
       else if (index === 2) { 
          this.fabVisibleFilters = true; /*this.pillMenu.visibleFabFilters(true)*/ 
-         if(this.getKeyToken('tipo')=='Profesor')
+         if(this.getKeyToken('tipo')=='Profesor') {
           this.renderer.setStyle(this.fabend.nativeElement,'display','block');
+         }
 
-        this.renderer.setStyle(this.fabstart.nativeElement,'display','block');
+         this.renderer.setStyle(this.fabstart.nativeElement,'display','block');
       } 
       else if (index === 3) { 
         this.fabVisibleFilters = true; /*this.pillMenu.visibleFabFilters(true)*/ 
-        if(this.getKeyToken('tipo')=='Profesor')
+        if(this.getKeyToken('tipo')=='Profesor') {
          this.renderer.setStyle(this.fabend.nativeElement,'display','block');
+        }
          
-         this.renderer.setStyle(this.fabstart.nativeElement,'display','none');
+        this.renderer.setStyle(this.fabstart.nativeElement,'display','none');
      } 
       else { 
           this.fabVisibleFilters = false; /*this.pillMenu.visibleFabFilters(false)*/ 
@@ -1081,6 +1083,35 @@ this.pillMenu.animacion();
             this.hayConexion = false;
             this.renderer.setStyle(this.avatarUser.nativeElement, 'color', `black`);
       }
+    }
+    public tamañoMover(): number{
+        let numberMover = 0;
+        if (this.platform.width() >= 250 && this.platform.width() <= 299) {numberMover = 1; }
+        if (this.platform.width() >= 300 && this.platform.width() <= 349) {numberMover = 2; }
+        if (this.platform.width() >= 350 && this.platform.width() <= 399) {numberMover = 3; }
+        if (this.platform.width() >= 400 && this.platform.width() <= 449 ) {numberMover = 4; }
+        if (this.platform.width() >= 450 && this.platform.width() <= 499) {numberMover = 5; }
+        if (this.platform.width() >= 500 && this.platform.width() <= 549 ) {numberMover = 6; }
+        if (this.platform.width() >= 550 && this.platform.width() <= 599) {numberMover = 7; }
+        if (this.platform.width() >= 600 && this.platform.width() <= 649 ) {numberMover = 8; }
+        if (this.platform.width() >= 650 && this.platform.width() <= 699 ) {numberMover = 9; }
+        if (this.platform.width() >= 700 && this.platform.width() <= 749 ) {numberMover = 10; }
+        if (this.platform.width() >= 750 && this.platform.width() <= 799 ) {numberMover = 11; }
+        if (this.platform.width() >= 800 && this.platform.width() <= 849 ) {numberMover = 12; }
+        if (this.platform.width() >= 850 && this.platform.width() <= 899 ) {numberMover = 13; }
+        if (this.platform.width() >= 900 && this.platform.width() <= 949 ) {numberMover = 14; }
+        if (this.platform.width() >= 950 && this.platform.width() <= 999 ) {numberMover = 15; }
+        if (this.platform.width() >= 1000 && this.platform.width() <= 1049  ) {numberMover = 16; }
+        if (this.platform.width() >= 1050 && this.platform.width() <= 1099 ) {numberMover = 17; }
+        if (this.platform.width() >= 1100 && this.platform.width() <= 1149 ) {numberMover = 18; }
+        if (this.platform.width() >= 1150 && this.platform.width() <= 1199 ) {numberMover = 19; }
+        if (this.platform.width() >= 1200 && this.platform.width() <= 1249 ) {numberMover = 20; }
+        if (this.platform.width() >= 1250 && this.platform.width() <= 1299 ) {numberMover = 21; }
+        if (this.platform.width() >= 1300 && this.platform.width() <= 1349 ) {numberMover = 22; }
+        if (this.platform.width() >= 1350  ) {numberMover = 23; }
+
+        console.log(numberMover);
+        return numberMover;
     }
 
 }
